@@ -33,6 +33,8 @@ manifest_path = os.getenv('INPUT_MANIFEST', 'manifest.yaml')
 try:
     with open(manifest_path, 'r') as file:
         manifest = yaml.safe_load(file)
+        print(f"Manifest loaded successfully from '{manifest_path}'.")
+        print(f"Manifest content: {manifest}")
 except FileNotFoundError:
     error_exit(f"Manifest file '{manifest_path}' not found.")
 except yaml.YAMLError as e:
