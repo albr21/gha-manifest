@@ -33,8 +33,8 @@ manifest_path = os.getenv('INPUT_MANIFEST', 'manifest.yaml')
 try:
     with open(manifest_path, 'r') as file:
         manifest = yaml.safe_load(file)
-        print(f"Manifest loaded successfully from '{manifest_path}'.")
-        print(f"Manifest content: {manifest}")
+        print(f"Manifest loaded successfully from '{manifest_path}'.", flush=True)
+        print(f"Manifest content: {manifest}", flush=True)
 except FileNotFoundError:
     error_exit(f"Manifest file '{manifest_path}' not found.")
 except yaml.YAMLError as e:
@@ -43,13 +43,10 @@ except Exception as e:
     error_exit(f"An unexpected error occurred: {e}")
 
 try:
-    project_name: str = manifest.get('name')
-    version: str = manifest.get('version')
-    releases: list = manifest.get('releases')
-    related_changes: list = next(
-        (r.get("changes") for r in releases if r.get("version") == version),
-        None
-    )
+    project_name = manifest["name"]
+    version = manifest["version"]
+    releases = manifest["releases"]
+    related_changes: list = next(r["changes"] for r in releases if r["version"] == version)
 except Exception as e:
     error_exit(f"Error extracting data from manifest: {e}")
 
