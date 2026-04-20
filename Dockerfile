@@ -4,6 +4,8 @@ WORKDIR /app
 
 RUN pip install --no-cache-dir pyyaml tzdata
 
+ENV PYTHONUNBUFFERED=1
+
 COPY entrypoint.py /app/entrypoint.py
 
 ENTRYPOINT ["python", "/app/entrypoint.py"]
