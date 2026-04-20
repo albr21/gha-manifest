@@ -1,7 +1,12 @@
-name: <project-name>
+name: gha-manifest
 description: |-
-  <project-description>
-version: 0.0.0
-changes: |-
-  [0.0.0]
-    * Under development
+  GitHub Action to extract data from `manifest.yaml` in order to automate release creation
+version: 1.0.0
+
+releases:
+  - version: 1.0.0
+    changes:
+      - Initial release
+  - version: 0.0.0
+    changes:
+      - Under development
