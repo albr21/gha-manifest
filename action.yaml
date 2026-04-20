@@ -1,0 +1,31 @@
+name: gha-manifest
+
+description: |-
+  GitHub Action to extract data from `manifest.yaml` in order to automate release creation
+
+author: albr21
+branding:
+  icon: edit
+  color: white
+
+inputs:
+  manifest:
+    description: |-
+      Path to the manifest.yaml file
+    required: false
+    default: manifest.yaml
+
+outputs:
+  release-title:
+    description: |-
+      The title of the release note
+  release-version:
+    description: |-
+      The version of the release note
+  release-body:
+    description: |-
+      The body of the release note
+
+runs:
+  using: docker
+  image: Dockerfile
