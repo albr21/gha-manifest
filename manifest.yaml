@@ -2,7 +2,6 @@ name: gha-manifest
 description: |-
   GitHub Action to extract data from `manifest.yaml` in order to automate release creation
 version: 1.0.0
-
 releases:
   - version: 1.0.0
     changes:
